@@ -12,11 +12,14 @@ class TestRoom < Minitest::Test
     @room1 = Room.new("Red Room", 1, 5)
     @room2 = Room.new("Velvet Room", 2, 10)
     @room3 = Room.new("The Quiet Room", 3, 15)
-    @room4 = Room.new("The Forbidden Room", 4, 20)
+    @room4 = Room.new("The Forbidden Room", 4, 2)
     # Guests
     @guest1 = Guest.new("Alex", 10)
     @guest2 = Guest.new("Bob", 20)
     @guest3 = Guest.new("Carlos", 30)
+    @guest4 = Guest.new("Dave", 40)
+    @guest5 = Guest.new("Ed", 50)
+    @guest6 = Guest.new("Frank", 60)
     # Songs
     @song1 = Song.new("Sadie", "Alkaline Trio")
     @song2 = Song.new("Meant To Be", "Blaze Bayley")
@@ -71,5 +74,19 @@ class TestRoom < Minitest::Test
     @room1.add_guest(@guest2)
     @room1.remove_specific_guest("Bob")
     assert_equal(1, @room1.guests.length)
+  end
+
+  def test_if_room_already_full
+    @room4.add_guest(@guest1)
+    @room4.add_guest(@guest2)
+    @room4.add_guest(@guest3)
+    @room4.add_guest(@guest4)
+    @room4.add_guest(@guest5)
+    @room4.add_guest(@guest6)
+    assert_equal(2, @room4.guests.length)
+  end
+
+  def test_if_guest_charged
+
   end
 end
