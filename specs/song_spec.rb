@@ -9,7 +9,7 @@ class TestSong < Minitest::Test
     # Songs
     @song1 = Song.new("Sadie", "Alkaline Trio")
     @song2 = Song.new("Meant To Be", "Blaze Bayley")
-    @song3 = Song.new("Alice Cooper", "Former Lee Warner")
+    @song3 = Song.new("Former Lee Warner", "Alice Cooper")
   end
 
   def test_get_song_name

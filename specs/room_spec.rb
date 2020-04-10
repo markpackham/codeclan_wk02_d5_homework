@@ -24,7 +24,7 @@ class TestRoom < Minitest::Test
     # Songs
     @song1 = Song.new("Sadie", "Alkaline Trio")
     @song2 = Song.new("Meant To Be", "Blaze Bayley")
-    @song3 = Song.new("Alice Cooper", "Former Lee Warner")
+    @song3 = Song.new("Former Lee Warner", "Alice Cooper")
   end
 
   def test_get_room_name
@@ -58,7 +58,14 @@ class TestRoom < Minitest::Test
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
-    assert_equal(["Sadie", "Meant To Be", "Alice Cooper"],@room1.list_song_names())
+    assert_equal(["Sadie", "Meant To Be", "Former Lee Warner"],@room1.list_song_names())
+  end
+
+  def test_list_artist_names()
+    @room1.add_song(@song1)
+    @room1.add_song(@song2)
+    @room1.add_song(@song3)
+    assert_equal(["Alkaline Trio", "Blaze Bayley", "Alice Cooper"],@room1.list_artist_names())
   end
 
   def test_add_guests()
