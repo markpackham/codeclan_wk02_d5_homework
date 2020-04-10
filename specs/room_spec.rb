@@ -74,6 +74,19 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room1.guests.length)
   end
 
+  def test_find_guest_by_name()
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+   assert_equal("Bob", @room1.find_guest_by_name("Bob"))
+  end
+
+  # prove that guest pays fee after being added to room
+  def test_find_guest_cash_after_fee_paid()
+    # Bob has 20 originally & room fee is 1
+    @room1.add_guest(@guest2)
+   assert_equal(19, @room1.find_guest_cash("Bob"))
+  end
+
   def test_remove_last_guest()
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
@@ -103,11 +116,5 @@ class TestRoom < Minitest::Test
 
   def test_if_guest_cannot_afford_room
     assert_equal("You can't afford the fee", @room5.add_guest(@guest3))
-  end
-
-  def test_if_guest_charged()
-    p @guest3.cash
-    @room3.add_guest(@guest3)
-    p @room3.guests
   end
 end

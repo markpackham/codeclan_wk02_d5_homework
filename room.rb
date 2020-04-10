@@ -37,14 +37,24 @@ class Room
     @guests << guest
   end
 
+  def find_guest_by_name(guest_name)
+    the_guest = @guests.find{ |guest| guest.name == guest_name}
+    return the_guest.name
+  end
+
+  def find_guest_cash(guest_name)
+    the_guest = @guests.find{ |guest| guest.name == guest_name}
+    return the_guest.cash
+  end
+
   def remove_last_guest
     @guests.pop()
   end
 
   def remove_specific_guest(guest_name)
-    for g in @guests
-      if (g.name == guest_name)
-        @guests.delete(g)
+    for guest in @guests
+      if (guest.name == guest_name)
+        @guests.delete(guest)
       end
     end
   end
