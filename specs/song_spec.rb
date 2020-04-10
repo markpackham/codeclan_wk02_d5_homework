@@ -12,7 +12,7 @@ class TestSong < Minitest::Test
     @song3 = Song.new("Alice Cooper", "Former Lee Warner")
   end
 
-  def test_get_name
+  def test_get_song_name
     assert_equal("Sadie", @song1.name)
   end
 
