@@ -15,12 +15,12 @@ class TestRoom < Minitest::Test
     @room4 = Room.new("The Forbidden Room", 4, 2)
     @room5 = Room.new("Illuminati Chamber", 500000, 50)
     # Guests
-    @guest1 = Guest.new("Alex", 10)
-    @guest2 = Guest.new("Bob", 20)
-    @guest3 = Guest.new("Carlos", 30)
-    @guest4 = Guest.new("Dave", 40)
-    @guest5 = Guest.new("Ed", 50)
-    @guest6 = Guest.new("Frank", 60)
+    @guest1 = Guest.new("Alex", 10, "Former Lee Warner")
+    @guest2 = Guest.new("Bob", 20, "Park Life")
+    @guest3 = Guest.new("Carlos", 30, "Beautiful People")
+    @guest4 = Guest.new("Dave", 40, "Silicon Messiah")
+    @guest5 = Guest.new("Ed", 50, "Run With Us")
+    @guest6 = Guest.new("Frank", 60, "Da Da Da")
     # Songs
     @song1 = Song.new("Sadie", "Alkaline Trio")
     @song2 = Song.new("Meant To Be", "Blaze Bayley")
