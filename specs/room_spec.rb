@@ -54,6 +54,13 @@ class TestRoom < Minitest::Test
     assert_equal(3, @room1.songs.length)
   end
 
+  def test_list_song_names()
+    @room1.add_song(@song1)
+    @room1.add_song(@song2)
+    @room1.add_song(@song3)
+    assert_equal(["Sadie", "Meant To Be", "Alice Cooper"],@room1.list_song_names())
+  end
+
   def test_add_guests()
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)

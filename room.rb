@@ -13,6 +13,14 @@ class Room
     @songs << song
   end
 
+  def list_song_names()
+    song_names = []
+    for song in @songs
+      song_names << song.name
+    end
+    return song_names
+  end
+
   def add_guest(guest)
     return "Sorry this room is full" if (@guests.length >= @guest_limit)
     return "You can't afford the fee" if (@fee > guest.cash)
