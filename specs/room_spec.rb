@@ -122,7 +122,18 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room4.guests.length)
   end
 
-  def test_if_guest_cannot_afford_room
+  def test_if_guest_cannot_afford_room()
     assert_equal("You can't afford the fee", @room5.add_guest(@guest3))
   end
+
+  def test_fav_song_check__result()
+    @room1.add_song(@song3)
+    assert_equal("Whoo!",@room1.fav_song_check(@guest1))
+  end
+
+  def test_fav_song_check__no_result()
+    @room1.add_song(@song3)
+    assert_equal("Boo!",@room1.fav_song_check(@guest6))
+  end
+
 end

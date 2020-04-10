@@ -59,6 +59,17 @@ class Room
     return the_guest.cash
   end
 
+  def fav_song_check(guest_name)
+      fav_song = guest_name.fav_song
+      for song in @songs
+        if(song.name == fav_song)
+            return "Whoo!"
+        else
+            return "Boo!"
+        end
+      end
+  end
+
   def remove_last_guest
     @guests.pop()
   end
