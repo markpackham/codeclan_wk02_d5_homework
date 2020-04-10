@@ -15,9 +15,13 @@ class Room
     @guests << guest
   end
 
-  def remove_guest(guest)
+  def remove_last_guest
+    @guests.pop()
+  end
+
+  def remove_specific_guest(guest_name)
     for g in @guests
-      if (g.name == guest)
+      if (g.name == guest_name)
         @guests.delete(g)
       end
     end

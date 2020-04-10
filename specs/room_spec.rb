@@ -14,9 +14,9 @@ class TestRoom < Minitest::Test
     @room3 = Room.new("The Quiet Room")
     @room4 = Room.new("The Forbidden Room")
     # Guests
-    @guest = Guest.new("Alex")
-    @guest = Guest.new("Bob")
-    @guest = Guest.new("Carlos")
+    @guest1 = Guest.new("Alex")
+    @guest2 = Guest.new("Bob")
+    @guest3 = Guest.new("Carlos")
     # Songs
     @song1 = Song.new("Sadie", "Alkaline Trio")
     @song2 = Song.new("Meant To Be", "Blaze Bayley")
@@ -43,8 +43,25 @@ class TestRoom < Minitest::Test
   end
 
   def test_add_guests()
-    @room1.add_guest(@guest)
-    @room1.add_guest(@guest)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
     assert_equal(2, @room1.guests.length)
+  end
+
+def test_remove_last_guest()
+  @room1.add_guest(@guest1)
+  @room1.add_guest(@guest2)
+  @room1.add_guest(@guest3)
+  # duplicate value for guest 1 so remove
+  @room1.add_guest(@guest1)
+  @room1.remove_last_guest()
+  assert_equal(3, @room1.guests.length)
+end
+
+  def test_remove_specific_guest()
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.remove_specific_guest("Bob")
+    assert_equal(1, @room1.guests.length)
   end
 end
