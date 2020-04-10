@@ -13,20 +13,30 @@ class Room
     @songs << song
   end
 
+  # def list_song_names()
+  #   song_names = []
+  #   for song in @songs
+  #     song_names << song.name
+  #   end
+  #   return song_names
+  # end
+
   def list_song_names()
-    song_names = []
-    for song in @songs
-      song_names << song.name
-    end
-    return song_names
+    song_array = @songs.map { |song| song.name }
+    return song_array
   end
 
+  # def list_artist_names()
+  #   artist_names = []
+  #   for song in @songs
+  #     artist_names << song.artist
+  #   end
+  #   return artist_names
+  # end
+
   def list_artist_names()
-    artist_names = []
-    for song in @songs
-      artist_names << song.artist
-    end
-    return artist_names
+    artist_array = @songs.map { |song| song.artist }
+    return artist_array
   end
 
   def add_guest(guest)
@@ -38,12 +48,12 @@ class Room
   end
 
   def find_guest_by_name(guest_name)
-    the_guest = @guests.find{ |guest| guest.name == guest_name}
+    the_guest = @guests.find { |guest| guest.name == guest_name }
     return the_guest.name
   end
 
   def find_guest_cash(guest_name)
-    the_guest = @guests.find{ |guest| guest.name == guest_name}
+    the_guest = @guests.find { |guest| guest.name == guest_name }
     return the_guest.cash
   end
 
