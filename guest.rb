@@ -1,7 +1,7 @@
 class Guest
-  attr_reader(:name,:cash)
+  attr_accessor(:name, :cash)
 
-  def initialize(name,cash)
+  def initialize(name, cash)
     @name = name
     @cash = cash
   end

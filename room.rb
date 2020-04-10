@@ -14,11 +14,11 @@ class Room
   end
 
   def add_guest(guest)
-    if (@guests.length >= @guest_limit)
-        return "Sorry this room is full" 
-    else
-        @guests << guest
-    end
+    return "Sorry this room is full" if (@guests.length >= @guest_limit)
+    return "You can't afford the fee" if (@fee > guest.cash)
+
+    guest.cash -= @fee
+    @guests << guest
   end
 
   def remove_last_guest

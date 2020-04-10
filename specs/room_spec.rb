@@ -13,6 +13,7 @@ class TestRoom < Minitest::Test
     @room2 = Room.new("Velvet Room", 2, 10)
     @room3 = Room.new("The Quiet Room", 3, 15)
     @room4 = Room.new("The Forbidden Room", 4, 2)
+    @room5 = Room.new("Illuminati Chamber", 500000, 50)
     # Guests
     @guest1 = Guest.new("Alex", 10)
     @guest2 = Guest.new("Bob", 20)
@@ -76,7 +77,7 @@ class TestRoom < Minitest::Test
     assert_equal(1, @room1.guests.length)
   end
 
-  def test_if_room_already_full
+  def test_if_room_already_full()
     @room4.add_guest(@guest1)
     @room4.add_guest(@guest2)
     @room4.add_guest(@guest3)
@@ -86,7 +87,13 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room4.guests.length)
   end
 
-  def test_if_guest_charged
+  def test_if_guest_cannot_afford_room
+    assert_equal("You can't afford the fee", @room5.add_guest(@guest3))
+  end
+
+  def test_if_guest_charged()
+    p @guest3.cash
     @room3.add_guest(@guest3)
+    p @room3.guests
   end
 end
