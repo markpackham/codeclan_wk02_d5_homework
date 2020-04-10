@@ -87,6 +87,6 @@ class TestRoom < Minitest::Test
   end
 
   def test_if_guest_charged
-
+    @room3.add_guest(@guest3)
   end
 end

@@ -16,7 +16,7 @@ class TestGuest < Minitest::Test
     assert_equal("Alex", @guest1.name)
   end
 
-  def test_get_guest_name
+  def test_get_guest_cash
     assert_equal(10, @guest1.cash)
   end
 end
