@@ -61,11 +61,19 @@ class TestRoom < Minitest::Test
     assert_equal(["Sadie", "Meant To Be", "Former Lee Warner"],@room1.list_song_names())
   end
 
+  def test_list_song_names_no_songs_added()
+    assert_equal("The room has no songs",@room1.list_song_names())
+  end
+
   def test_list_artist_names()
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
     assert_equal(["Alkaline Trio", "Blaze Bayley", "Alice Cooper"],@room1.list_artist_names())
+  end
+
+  def test_list_artist_names_no_songs_added()
+    assert_equal("The room has no songs",@room1.list_artist_names())
   end
 
   def test_add_guests()

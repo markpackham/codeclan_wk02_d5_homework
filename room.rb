@@ -23,7 +23,8 @@ class Room
 
   def list_song_names()
     song_array = @songs.map { |song| song.name }
-    return song_array
+    return song_array if(song_array.length >0)
+    return "The room has no songs"
   end
 
   # def list_artist_names()
@@ -36,7 +37,8 @@ class Room
 
   def list_artist_names()
     artist_array = @songs.map { |song| song.artist }
-    return artist_array
+    return artist_array if(artist_array.length >0)
+    return "The room has no songs"
   end
 
   def add_guest(guest)
