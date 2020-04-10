@@ -9,10 +9,10 @@ require_relative("../song")
 class TestRoom < Minitest::Test
   def setup
     # Rooms
-    @room1 = Room.new("Red Room",1)
-    @room2 = Room.new("Velvet Room",2)
-    @room3 = Room.new("The Quiet Room",3)
-    @room4 = Room.new("The Forbidden Room",4)
+    @room1 = Room.new("Red Room", 1, 5)
+    @room2 = Room.new("Velvet Room", 2, 10)
+    @room3 = Room.new("The Quiet Room", 3, 15)
+    @room4 = Room.new("The Forbidden Room", 4, 20)
     # Guests
     @guest1 = Guest.new("Alex", 10)
     @guest2 = Guest.new("Bob", 20)
@@ -29,6 +29,10 @@ class TestRoom < Minitest::Test
 
   def test_get_fee
     assert_equal(1, @room1.fee)
+  end
+
+  def test_guest_limit
+    assert_equal(5, @room1.guest_limit)
   end
 
   def test_get_songs
@@ -52,15 +56,15 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room1.guests.length)
   end
 
-def test_remove_last_guest()
-  @room1.add_guest(@guest1)
-  @room1.add_guest(@guest2)
-  @room1.add_guest(@guest3)
-  # duplicate value for guest 1 so remove
-  @room1.add_guest(@guest1)
-  @room1.remove_last_guest()
-  assert_equal(3, @room1.guests.length)
-end
+  def test_remove_last_guest()
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.add_guest(@guest3)
+    # duplicate value for guest 1 so remove
+    @room1.add_guest(@guest1)
+    @room1.remove_last_guest()
+    assert_equal(3, @room1.guests.length)
+  end
 
   def test_remove_specific_guest()
     @room1.add_guest(@guest1)
