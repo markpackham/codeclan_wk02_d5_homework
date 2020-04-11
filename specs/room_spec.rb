@@ -82,6 +82,12 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room1.guests.length)
   end
 
+  def test_find_guest_details()
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    assert_equal(Guest, @room1.find_guest_details("Bob").class)
+  end
+
   def test_find_guest_by_name()
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
