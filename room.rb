@@ -23,7 +23,7 @@ class Room
 
   def list_song_names()
     song_array = @songs.map { |song| song.name }
-    return song_array if(song_array.length >0)
+    return song_array if (song_array.length > 0)
     return "The room has no songs"
   end
 
@@ -37,7 +37,7 @@ class Room
 
   def list_artist_names()
     artist_array = @songs.map { |song| song.artist }
-    return artist_array if(artist_array.length >0)
+    return artist_array if (artist_array.length > 0)
     return "The room has no songs"
   end
 
@@ -59,15 +59,21 @@ class Room
     return the_guest.cash
   end
 
+  # def fav_song_check(guest_name)
+  #     fav_song = guest_name.fav_song
+  #     for song in @songs
+  #       if(song.name == fav_song)
+  #           return "Whoo!"
+  #       else
+  #           return "Boo!"
+  #       end
+  #     end
+  # end
+
   def fav_song_check(guest_name)
-      fav_song = guest_name.fav_song
-      for song in @songs
-        if(song.name == fav_song)
-            return "Whoo!"
-        else
-            return "Boo!"
-        end
-      end
+    fav_song = guest_name.fav_song
+    return "Whoo!" if (@songs.find { |song| song.name == fav_song })
+    return "Boo!"
   end
 
   def remove_last_guest
