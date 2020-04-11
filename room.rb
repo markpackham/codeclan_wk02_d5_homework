@@ -88,10 +88,12 @@ class Room
   end
 
   def remove_specific_guest(guest_name)
-    for guest in @guests
-      if (guest.name == guest_name)
-        @guests.delete(guest)
-      end
-    end
+    guest = find_guest_details(guest_name)
+    @guests.delete(guest)
+    # for guest in @guests
+    #   if (guest.name == guest_name)
+    #     @guests.delete(guest)
+    #   end
+    # end
   end
 end
