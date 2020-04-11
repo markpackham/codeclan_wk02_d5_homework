@@ -10,6 +10,7 @@ class TestGuest < Minitest::Test
     @guest1 = Guest.new("Alex", 10, "Former Lee Warner")
     @guest2 = Guest.new("Bob", 20, "Park Life")
     @guest3 = Guest.new("Carlos", 30, "Beautiful People")
+    @guest3 = Guest.new("Dave", 40)
   end
 
   def test_get_guest_name

@@ -57,27 +57,27 @@ class TestRoom < Minitest::Test
   end
 
   def test_list_song_names()
-    assert_equal("The room has no songs",@room1.list_song_names())
+    assert_equal("The room has no songs", @room1.list_song_names())
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
-    assert_equal(["Sadie", "Meant To Be", "Former Lee Warner"],@room1.list_song_names())
+    assert_equal(["Sadie", "Meant To Be", "Former Lee Warner"], @room1.list_song_names())
   end
 
   def test_list_song_names_no_songs_added()
-    assert_equal("The room has no songs",@room1.list_song_names())
+    assert_equal("The room has no songs", @room1.list_song_names())
   end
 
   def test_list_artist_names()
-    assert_equal("The room has no songs",@room1.list_artist_names())
+    assert_equal("The room has no songs", @room1.list_artist_names())
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
-    assert_equal(["Alkaline Trio", "Blaze Bayley", "Alice Cooper"],@room1.list_artist_names())
+    assert_equal(["Alkaline Trio", "Blaze Bayley", "Alice Cooper"], @room1.list_artist_names())
   end
 
   def test_list_artist_names_no_songs_added()
-    assert_equal("The room has no songs",@room1.list_artist_names())
+    assert_equal("The room has no songs", @room1.list_artist_names())
   end
 
   def test_add_guests()
@@ -96,20 +96,20 @@ class TestRoom < Minitest::Test
   def test_find_guest_by_name()
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
-   assert_equal("Bob", @room1.find_guest_by_name("Bob"))
+    assert_equal("Bob", @room1.find_guest_by_name("Bob"))
   end
 
   def test_find_guest_by_non_existant_name()
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
-   assert_equal("Guest does not exist", @room1.find_guest_by_name("Non Existant Bob"))
+    assert_equal("Guest does not exist", @room1.find_guest_by_name("Non Existant Bob"))
   end
 
   # prove that guest pays fee after being added to room
   def test_find_guest_cash_after_fee_paid()
     # Bob has 20 originally & room fee is 1
     @room1.add_guest(@guest2)
-   assert_equal(19, @room1.find_guest_cash("Bob"))
+    assert_equal(19, @room1.find_guest_cash("Bob"))
   end
 
   def test_remove_last_guest()
@@ -146,12 +146,12 @@ class TestRoom < Minitest::Test
 
   def test_fav_song_check__result()
     @room1.add_song(@song3)
-    assert_equal("Whoo!",@room1.fav_song_check(@guest1))
+    assert_equal("Whoo!", @room1.fav_song_check(@guest1))
   end
 
   def test_fav_song_check__no_result()
     @room1.add_song(@song3)
-    assert_equal("Boo!",@room1.fav_song_check(@guest6))
+    assert_equal("Boo!", @room1.fav_song_check(@guest6))
   end
 
   def test_closing_time_remove_all_guests()
@@ -165,5 +165,4 @@ class TestRoom < Minitest::Test
     @room6.remove_all_guests()
     assert_equal(0, @room6.guests.length)
   end
-
 end
