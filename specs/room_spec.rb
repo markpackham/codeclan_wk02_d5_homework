@@ -49,6 +49,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_add_songs()
+    assert_equal(0, @room1.songs.length)
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
@@ -56,6 +57,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_list_song_names()
+    assert_equal("The room has no songs",@room1.list_song_names())
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
@@ -67,6 +69,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_list_artist_names()
+    assert_equal("The room has no songs",@room1.list_artist_names())
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
@@ -78,6 +81,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_add_guests()
+    assert_equal(0, @room1.guests.length)
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
     assert_equal(2, @room1.guests.length)
