@@ -14,6 +14,7 @@ class TestRoom < Minitest::Test
     @room3 = Room.new("The Quiet Room", 3, 15)
     @room4 = Room.new("The Forbidden Room", 4, 2)
     @room5 = Room.new("Illuminati Chamber", 500000, 50)
+    @room6 = Room.new("Epic Fighting Pit", 1, 9000)
     # Guests
     @guest1 = Guest.new("Alex", 10, "Former Lee Warner")
     @guest2 = Guest.new("Bob", 20, "Park Life")
@@ -125,6 +126,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_if_room_already_full()
+    assert_equal(0, @room4.guests.length)
     @room4.add_guest(@guest1)
     @room4.add_guest(@guest2)
     @room4.add_guest(@guest3)
@@ -146,6 +148,18 @@ class TestRoom < Minitest::Test
   def test_fav_song_check__no_result()
     @room1.add_song(@song3)
     assert_equal("Boo!",@room1.fav_song_check(@guest6))
+  end
+
+  def test_closing_time_remove_all_guests()
+    @room6.add_guest(@guest1)
+    @room6.add_guest(@guest2)
+    @room6.add_guest(@guest3)
+    @room6.add_guest(@guest4)
+    @room6.add_guest(@guest5)
+    @room6.add_guest(@guest6)
+    assert_equal(6, @room6.guests.length)
+    @room6.remove_all_guests()
+    assert_equal(0, @room6.guests.length)
   end
 
 end

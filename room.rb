@@ -96,4 +96,8 @@ class Room
     #   end
     # end
   end
+
+  def remove_all_guests()
+    @guests = []
+  end
 end
