@@ -88,6 +88,12 @@ class TestRoom < Minitest::Test
    assert_equal("Bob", @room1.find_guest_by_name("Bob"))
   end
 
+  def test_find_guest_by_non_existant_name()
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+   assert_equal("Guest does not exist", @room1.find_guest_by_name("Non Existant Bob"))
+  end
+
   # prove that guest pays fee after being added to room
   def test_find_guest_cash_after_fee_paid()
     # Bob has 20 originally & room fee is 1

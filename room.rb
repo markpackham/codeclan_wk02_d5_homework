@@ -51,6 +51,7 @@ class Room
 
   def find_guest_by_name(guest_name)
     the_guest = @guests.find { |guest| guest.name == guest_name }
+    return "Guest does not exist" if (the_guest == nil)
     return the_guest.name
   end
 
